@@ -9,10 +9,13 @@
         android:id="@+id/baseFragment"
         android:name="com.example.dermoscan.fragments.BaseFragment"
         android:label="Home"
-        tools:layout="@layout/fragment_base" >
+        tools:layout="@layout/fragment_base">
         <action
             android:id="@+id/navigateToDetectFragment"
             app:destination="@id/detectFragment" />
+        <action
+            android:id="@+id/navigateToBlogDetails"
+            app:destination="@id/blogDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/infoFragment"
@@ -39,4 +42,20 @@
         android:name="com.example.dermoscan.fragments.DetectFragment"
         android:label="fragment_detect"
         tools:layout="@layout/fragment_detect" />
+    <fragment
+        android:id="@+id/blogDetailsFragment"
+        android:name="com.example.dermoscan.fragments.BlogDetailsFragment"
+        android:label="{blogTitle}"
+        tools:ignore="ExtraText"
+        tools:layout="@layout/fragment_blog_details">
+        <argument
+            android:name="blogTitle"
+            app:argType="string" />
+        <argument
+            android:name="blogArticle"
+            app:argType="string" />
+        <argument
+            android:name="blogImage"
+            app:argType="integer" />
+    </fragment>
 </navigation>

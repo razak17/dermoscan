@@ -55,14 +55,12 @@ class BaseFragment : Fragment() {
 
         blogAdapter.setOnBlogClickListener(object : BlogAdapter.OnBlogClickListener {
             override fun onBlogClick(position: Int) {
-//                val blogTitle = blogHeading[position]
-//                val blogContent = blogArticle[position]
-//                val blogImage = blogImageId[position]
-//                val action =
-//                    BaseFragmentDirections.navigateToBlogDetails(blogTitle, blogContent, blogImage)
-//                findNavController().navigate(action)
-                Toast.makeText(activity, "Scan Item $position clicked!!!", Toast.LENGTH_SHORT)
-                    .show()
+                val blogTitle = blogHeading[position]
+                val blogContent = blogArticle[position]
+                val blogImage = blogImageId[position]
+                val action =
+                    BaseFragmentDirections.navigateToBlogDetails(blogTitle, blogContent, blogImage)
+                findNavController().navigate(action)
             }
         })
 

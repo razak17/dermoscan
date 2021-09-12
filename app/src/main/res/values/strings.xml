@@ -1,0 +1,99 @@
+<resources>
+    <string name="app_name">Dermoscan</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="strWelcomeMessage">Welcome to Dermoscan</string>
+    <string name="second_fragment">second fragment</string>
+    <string name="third_fragment">© 2021 - Dermoscan Inc.</string>
+    <string name="strWelcomeSub">Get started by creating a new scan.</string>
+    <string name="strNewScan">Scan Image</string>
+    <string name="strLaunchCamera">Camera</string>
+    <string name="strImageDescription">View for displaying image</string>
+    <string name="test">Hello</string>
+    <string name="strOpenGallery">Gallery</string>
+    <string name="strDiagnose">Diagnose</string>
+    <string name="strAboutDesc">Skin cancer lesion diagnosis</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="strAbout">About</string>
+    <string name="strViewSettings">Legal</string>
+    <string name="strBlogHeader">Dermoscan Blog</string>
+    <string name="strRecentScansHeader">Recent Scans</string>
+    <string name="strResultRCNN">RCCN:</string>
+    <string name="strResultResNet50">ResNet50:</string>
+
+    <string name="blog_1">
+        It is a long established fact that a reader will be distracted by the readable content of a
+        page when looking at its layout. The point of using Lorem Ipsum is that it has a
+        more-or-less normal distribution of letters, as opposed to using \'Content here,
+        content here\', making it look like readable English. Many desktop publishing packages and
+        web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem
+        ipsum\' will uncover many web sites still in their infancy. Various versions have evolved
+        over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
+        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece
+        of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,
+        a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure
+        Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the
+        word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from
+        sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and
+        Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very
+        popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
+        amet..", comes from a line in section 1.10.32.
+
+        It is a long established fact that a reader will be distracted by the readable content of a
+        page when looking at its layout. The point of using Lorem Ipsum is that it has a
+        more-or-less normal distribution of letters, as opposed to using \'Content here,
+        content here\', making it look like readable English. Many desktop publishing packages and
+        web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem
+        ipsum\' will uncover many web sites still in their infancy. Various versions have evolved
+        over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
+        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece
+        of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,
+        a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure
+        Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the
+        word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from
+        sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and
+        Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very
+        popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
+        amet..", comes from a line in section 1.10.32.
+
+        It is a long established fact that a reader will be distracted by the readable content of a
+        page when looking at its layout. The point of using Lorem Ipsum is that it has a
+        more-or-less normal distribution of letters, as opposed to using \'Content here,
+        content here\', making it look like readable English. Many desktop publishing packages and
+        web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem
+        ipsum\' will uncover many web sites still in their infancy. Various versions have evolved
+        over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
+        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece
+        of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,
+        a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure
+        Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the
+        word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from
+        sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and
+        Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very
+        popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
+        amet..", comes from a line in section 1.10.32.
+
+
+    </string>
+    <string name="strBlogDetailTitle">Blog Title</string>
+    <string name="strAllScans">View All</string>
+    <string name="strFabCamera">Floating Camera Fab</string>
+
+</resources>
