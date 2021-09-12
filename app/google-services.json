@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "232648368588",
+    "project_id": "dermoscan-be570",
+    "storage_bucket": "dermoscan-be570.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:232648368588:android:9308231034441c2c2dbd69",
+        "android_client_info": {
+          "package_name": "com.example.dermoscan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "232648368588-55nck6qmec1cb917rft59b4v5hbuo7ks.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXz2eDULpabfixzrUEu0aNzV_LP6QbUgs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "232648368588-55nck6qmec1cb917rft59b4v5hbuo7ks.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
