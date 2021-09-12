@@ -1,39 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_marginHorizontal="16dp"
     android:layout_height="match_parent"
     tools:context=".fragments.BaseFragment">
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvWelcomeCard"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvFirstFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="34dp"
+            android:text="@string/strWelcomeMessage"
+            android:textColor="@color/black"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvWelcomeSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="70dp"
+            android:text="@string/strWelcomeSub"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFirstFragment" />
+
+        <Button
+            android:id="@+id/btnScanImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="100dp"
+            android:text="@string/strNewScan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvWelcomeSub" />
+
+    </com.google.android.material.card.MaterialCardView>
+
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/tvBlogHeader"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Firebase Cloud Storage"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:textAlignment="center"
+        android:text="@string/strBlogHeader"
         android:textColor="@color/black"
+        android:textSize="18sp"
         android:textStyle="bold"
-        android:textSize="26sp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvWelcomeCard" />
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:id="@+id/imageView"
-        android:layout_marginVertical="30dp"
-        android:scaleType="centerCrop" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBlog"
+        android:layout_width="0dp"
+        android:layout_height="190dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBlogHeader" />
 
-    <EditText
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvRecentScansHeader"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/etImageId" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp"
+        android:text="@string/strRecentScansHeader"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvBlog" />
 
-    <Button
-        android:id="@+id/btnGetImage"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvAllScans"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get Scan"/>
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="6dp"
+        android:text="@string/strAllScans"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvBlog" />
 
-</LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRecentScans"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRecentScansHeader" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_camera"
+        android:contentDescription="@string/strFabCamera" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

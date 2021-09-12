@@ -9,7 +9,11 @@
         android:id="@+id/baseFragment"
         android:name="com.example.dermoscan.fragments.BaseFragment"
         android:label="Home"
-        tools:layout="@layout/fragment_base" />
+        tools:layout="@layout/fragment_base" >
+        <action
+            android:id="@+id/navigateToDetectFragment"
+            app:destination="@id/detectFragment" />
+    </fragment>
     <fragment
         android:id="@+id/infoFragment"
         android:name="com.example.dermoscan.fragments.InfoFragment"
@@ -25,4 +29,14 @@
         android:name="com.example.dermoscan.fragments.SettingsFragment"
         android:label="Settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.dermoscan.fragments.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/detectFragment"
+        android:name="com.example.dermoscan.fragments.DetectFragment"
+        android:label="fragment_detect"
+        tools:layout="@layout/fragment_detect" />
 </navigation>
