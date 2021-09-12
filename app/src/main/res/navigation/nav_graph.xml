@@ -43,13 +43,12 @@
     <fragment
         android:id="@+id/detectFragment"
         android:name="com.example.dermoscan.fragments.DetectFragment"
-        android:label="fragment_detect"
+        android:label="Scan Image"
         tools:layout="@layout/fragment_detect" />
     <fragment
         android:id="@+id/blogDetailsFragment"
         android:name="com.example.dermoscan.fragments.BlogDetailsFragment"
-        android:label="{blogTitle}"
-        tools:ignore="ExtraText"
+        android:label="Read More"
         tools:layout="@layout/fragment_blog_details">
         <argument
             android:name="blogTitle"
