@@ -59,7 +59,7 @@ class BaseFragment : Fragment() {
                 val blogContent = blogArticle[position]
                 val blogImage = blogImageId[position]
                 val action =
-                    BaseFragmentDirections.navigateToBlogDetails(blogTitle, blogContent, blogImage)
+                    BaseFragmentDirections.navigateToBlogDetailsFragment(blogTitle, blogContent, blogImage)
                 findNavController().navigate(action)
             }
         })
@@ -81,16 +81,16 @@ class BaseFragment : Fragment() {
             val action = BaseFragmentDirections.navigateToDetectFragment()
             findNavController().navigate(action)
         }
-//
-//        binding.tvAllScans.setOnClickListener {
-//            val action = BaseFragmentDirections.navigateToAllScans()
-//            findNavController().navigate(action)
-//        }
-//
-//        binding.fabCamera.setOnClickListener {
-//            val action = BaseFragmentDirections.navigateToDetectFragment()
-//            findNavController().navigate(action)
-//        }
+
+        binding.tvAllScans.setOnClickListener {
+            val action = BaseFragmentDirections.navigateToScanHistoryFragment()
+            findNavController().navigate(action)
+        }
+
+        binding.fabCamera.setOnClickListener {
+            val action = BaseFragmentDirections.navigateToDetectFragment()
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {

@@ -14,8 +14,11 @@
             android:id="@+id/navigateToDetectFragment"
             app:destination="@id/detectFragment" />
         <action
-            android:id="@+id/navigateToBlogDetails"
+            android:id="@+id/navigateToBlogDetailsFragment"
             app:destination="@id/blogDetailsFragment" />
+        <action
+            android:id="@+id/navigateToScanHistoryFragment"
+            app:destination="@id/historyFragment" />
     </fragment>
     <fragment
         android:id="@+id/infoFragment"
@@ -24,9 +27,9 @@
         tools:layout="@layout/fragment_info" />
     <fragment
         android:id="@+id/historyFragment"
-        android:name="com.example.dermoscan.fragments.HistoryFragment"
-        android:label="History"
-        tools:layout="@layout/fragment_history" />
+        android:name="com.example.dermoscan.fragments.ScanHistoryFragment"
+        android:label="Scan History"
+        tools:layout="@layout/fragment_scan_history" />
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.dermoscan.fragments.SettingsFragment"
