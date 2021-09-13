@@ -38,7 +38,7 @@ class SettingsFragment : Fragment() {
 
         settingsAdapter.setOnSettingClickListener(object : SettingsAdapter.OnSettingClickListener {
             override fun onSettingClick(position: Int) {
-                if (position == 0) {
+                if (position == 3) {
                     val action = SettingsFragmentDirections.navigateToScanAboutFragment()
                     findNavController().navigate(action)
                 } else {

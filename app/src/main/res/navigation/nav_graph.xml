@@ -24,7 +24,11 @@
         android:id="@+id/infoFragment"
         android:name="com.example.dermoscan.fragments.InfoFragment"
         android:label="Get Informed"
-        tools:layout="@layout/fragment_info" />
+        tools:layout="@layout/fragment_info">
+        <action
+            android:id="@+id/navigateToInfoDetailsFragment"
+            app:destination="@id/infoDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/historyFragment"
         android:name="com.example.dermoscan.fragments.ScanHistoryFragment"
@@ -34,7 +38,7 @@
         android:id="@+id/settingsFragment"
         android:name="com.example.dermoscan.fragments.SettingsFragment"
         android:label="Settings"
-        tools:layout="@layout/fragment_settings" >
+        tools:layout="@layout/fragment_settings">
         <action
             android:id="@+id/navigateToScanAboutFragment"
             app:destination="@id/aboutFragment" />
@@ -63,6 +67,18 @@
             app:argType="string" />
         <argument
             android:name="blogImage"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoDetailsFragment"
+        android:name="com.example.dermoscan.fragments.InfoDetailsFragment"
+        android:label="{infoTitle}"
+        tools:layout="@layout/fragment_info_details" >
+        <argument
+            android:name="infoTitle"
+            app:argType="string" />
+        <argument
+            android:name="infoImage"
             app:argType="integer" />
     </fragment>
 </navigation>
