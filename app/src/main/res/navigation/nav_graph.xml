@@ -34,7 +34,11 @@
         android:id="@+id/settingsFragment"
         android:name="com.example.dermoscan.fragments.SettingsFragment"
         android:label="Settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/navigateToScanAboutFragment"
+            app:destination="@id/aboutFragment" />
+    </fragment>
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.example.dermoscan.fragments.AboutFragment"
@@ -48,7 +52,8 @@
     <fragment
         android:id="@+id/blogDetailsFragment"
         android:name="com.example.dermoscan.fragments.BlogDetailsFragment"
-        android:label="Read More"
+        android:label="{blogTitle}"
+        tools:ignore="ExtraText"
         tools:layout="@layout/fragment_blog_details">
         <argument
             android:name="blogTitle"

@@ -29,7 +29,7 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="strAbout">About</string>
-    <string name="strViewSettings">Legal</string>
+    <string name="strViewSettings">View Settings</string>
     <string name="strBlogHeader">Dermoscan Blog</string>
     <string name="strRecentScansHeader">Recent Scans</string>
     <string name="strResultRCNN">RCCN:</string>

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +13,7 @@ import com.example.dermoscan.adapters.BlogAdapter
 import com.example.dermoscan.adapters.ScanAdapter
 import com.example.dermoscan.databinding.FragmentBaseBinding
 import com.example.dermoscan.models.BlogModel
+import com.example.dermoscan.utils.showToast
 
 class BaseFragment : Fragment() {
     private var _binding: FragmentBaseBinding? = null
@@ -59,15 +59,18 @@ class BaseFragment : Fragment() {
                 val blogContent = blogArticle[position]
                 val blogImage = blogImageId[position]
                 val action =
-                    BaseFragmentDirections.navigateToBlogDetailsFragment(blogTitle, blogContent, blogImage)
+                    BaseFragmentDirections.navigateToBlogDetailsFragment(
+                        blogTitle,
+                        blogContent,
+                        blogImage
+                    )
                 findNavController().navigate(action)
             }
         })
 
         scanAdapter.setOnScanClickListener(object : ScanAdapter.OnScanClickListener {
             override fun onScanClick(position: Int) {
-                Toast.makeText(activity, "Scan Item $position clicked!!!", Toast.LENGTH_SHORT)
-                    .show()
+                activity?.let { showToast(it, "Scan Item $position clicked!!!") }
             }
         })
 
