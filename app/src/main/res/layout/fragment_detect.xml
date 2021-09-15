@@ -24,24 +24,17 @@
         app:shapeAppearanceOverlay="@style/RoundCorner" />
 
     <Button
-        android:id="@+id/btnLaunchCamera"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnDiagnose"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
         android:layout_marginTop="20dp"
-        android:text="@string/strLaunchCamera"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/strDiagnose"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivLesionImage" />
 
-    <Button
-        android:id="@+id/btnOpenGallery"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="100dp"
-        android:text="@string/strOpenGallery"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivLesionImage" />
 
     <TextView
         android:id="@+id/tvResultsHeader"
@@ -49,11 +42,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Results:"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLaunchCamera" />
+        app:layout_constraintTop_toBottomOf="@+id/btnDiagnose" />
 
     <TextView
         android:id="@+id/tvResultsFirst"
@@ -61,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
-        android:textSize="14sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvResultsHeader" />
 
@@ -71,21 +64,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
-        android:textSize="14sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvResultsFirst" />
 
 
-    <Button
-        android:id="@+id/btnDiagnose"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/strDiagnose"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

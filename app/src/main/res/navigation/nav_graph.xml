@@ -52,7 +52,11 @@
         android:id="@+id/detectFragment"
         android:name="com.example.dermoscan.fragments.DetectFragment"
         android:label="Scan Image"
-        tools:layout="@layout/fragment_detect" />
+        tools:layout="@layout/fragment_detect">
+        <argument
+            android:name="scanImage"
+            app:argType="android.graphics.Bitmap" />
+    </fragment>
     <fragment
         android:id="@+id/blogDetailsFragment"
         android:name="com.example.dermoscan.fragments.BlogDetailsFragment"
@@ -73,7 +77,7 @@
         android:id="@+id/infoDetailsFragment"
         android:name="com.example.dermoscan.fragments.InfoDetailsFragment"
         android:label="{infoTitle}"
-        tools:layout="@layout/fragment_info_details" >
+        tools:layout="@layout/fragment_info_details">
         <argument
             android:name="infoTitle"
             app:argType="string" />

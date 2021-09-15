@@ -3,7 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.240625" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/drawable/bg_iv.xml" value="0.240625" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/drawable/bg_linear_layout.xml" value="0.240625" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/drawable/ic_camera_white.xml" value="0.240625" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/drawable/ic_check.xml" value="0.240625" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.240625" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/activity_main.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/blog_card.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/fragment_about.xml" value="0.10916919959473151" />
@@ -13,11 +18,15 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/fragment_history.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/fragment_info.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/fragment_info_details.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/fragment_scan_dialog.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/fragment_scan_history.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/fragment_settings.xml" value="0.1526268115942029" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/info_card.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/scan_dialog.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/scan_item.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/settings_item.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/test_dialog.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/testt_dialog.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/menu/bottom_nav.xml" value="0.22447916666666667" />
       </map>
     </option>

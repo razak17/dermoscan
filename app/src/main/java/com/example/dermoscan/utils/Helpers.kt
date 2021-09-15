@@ -46,7 +46,6 @@ fun showToast(context: Context, message: String, duration: Int = Toast.LENGTH_SH
     }
 }
 
-
 //  takes Bitmap and returns resized bitmap to specified width and height
 fun scaleImage(bitmap: Bitmap?, mInputSize: Int): Bitmap {
     val widthOriginal = bitmap!!.width

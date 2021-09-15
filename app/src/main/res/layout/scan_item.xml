@@ -3,14 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="100dp">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivScanImage"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_gravity="center_vertical"
-        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/strImageDescription"
         android:scaleType="centerCrop"
@@ -26,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
         android:text="@string/strResultRCNN"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/ivScanImage"
@@ -37,7 +38,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="5dp"
         android:text="@string/strResultResNet50"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/ivScanImage"
@@ -49,7 +49,7 @@
         android:background="@color/underline"
         app:layout_constraintBaseline_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="109dp" />
+        tools:layout_editor_absoluteY="99dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
