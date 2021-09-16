@@ -23,7 +23,6 @@ import com.example.dermoscan.databinding.FragmentBaseBinding
 import com.example.dermoscan.dummyScans
 import com.example.dermoscan.models.BlogModel
 import com.example.dermoscan.utils.*
-import java.io.IOException
 
 class BaseFragment : Fragment() {
     private var _binding: FragmentBaseBinding? = null
@@ -40,10 +39,11 @@ class BaseFragment : Fragment() {
 
     private val mInputSize = 224
     private val mSamplePath = "placeholder2.png"
-
     private lateinit var mBitmap: Bitmap
-    private lateinit var handleGalleryLaunch: ActivityResultLauncher<Intent>
-    private lateinit var handleCameraLaunch: ActivityResultLauncher<Intent>
+
+    private lateinit var cameraLauncher: ActivityResultLauncher<Intent>
+
+    private lateinit var galleryLauncher:  ActivityResultLauncher<Intent>
 
 
     override fun onCreateView(
@@ -100,7 +100,8 @@ class BaseFragment : Fragment() {
             }
         })
 
-        handleCameraLaunch =
+
+        cameraLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK) {
                     // There are no request codes
@@ -111,11 +112,16 @@ class BaseFragment : Fragment() {
                         toastAndNavigateToDetect(mBitmap)
                     }
                 } else {
-                    activity?.let { showToast(requireActivity(), "Unrecognized request code") }
+                    activity?.let {
+                        showToast(
+                            requireActivity(),
+                            "Unrecognized request code"
+                        )
+                    }
                 }
             }
 
-        handleGalleryLaunch =
+        galleryLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK) {
                     // There are no request codes
@@ -123,20 +129,17 @@ class BaseFragment : Fragment() {
                     // Handle Image from gallery
                     if (data != null) {
                         val imageUri = data.data
-                        val bitmap = activity?.let { uriToBitmap(it, imageUri!!) }
-                        try {
-                            if (bitmap != null) {
-                                mBitmap = bitmap
-                            }
-                        } catch (e: IOException) {
-                            e.printStackTrace()
-                        }
-                        println("Success!!!")
+                        mBitmap = activity?.let { uriToBitmap(requireActivity(), imageUri!!) }!!
                         mBitmap = scaleImage(mBitmap, mInputSize)
                         toastAndNavigateToDetect(mBitmap)
                     }
                 } else {
-                    activity?.let { showToast(requireActivity(), "Unrecognized request code") }
+                    activity?.let {
+                        showToast(
+                            requireActivity(),
+                            "Unrecognized request code"
+                        )
+                    }
                 }
             }
 
@@ -189,12 +192,12 @@ class BaseFragment : Fragment() {
 
 
             dialog.findViewById<Button>(R.id.btnCamera)?.setOnClickListener {
-                dispatchLaunchCameraIntent(handleCameraLaunch)
+                dispatchLaunchCameraIntent(cameraLauncher)
                 dialog.cancel()
             }
 
             dialog.findViewById<Button>(R.id.btnGallery)?.setOnClickListener {
-                dispatchLaunchGalleryIntent(handleGalleryLaunch)
+                dispatchLaunchGalleryIntent(galleryLauncher)
                 dialog.cancel()
             }
         } ?: throw IllegalStateException("Activity cannot be null")

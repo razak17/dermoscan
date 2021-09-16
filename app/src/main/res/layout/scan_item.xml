@@ -26,21 +26,19 @@
         android:id="@+id/tvScanResultRCNN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="36dp"
         android:text="@string/strResultRCNN"
         android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/ivScanImage"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvScanResultResNet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:text="@string/strResultResNet50"
         android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/ivScanImage"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvScanResultRCNN" />
 
     <View

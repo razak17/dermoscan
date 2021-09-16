@@ -58,4 +58,8 @@ dependencies {
     // Navigation Component dependencies
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    // Image cropping
+    implementation "androidx.activity:activity-ktx:1.4.0-alpha01"
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
 }
