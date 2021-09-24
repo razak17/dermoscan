@@ -12,9 +12,14 @@ import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.dermoscan.Classifier
 import com.example.dermoscan.R
+import com.example.dermoscan.adapters.ModelCheckAdapter
 import com.example.dermoscan.databinding.FragmentDetectBinding
+import com.example.dermoscan.models.ModelCheckModel
+import com.example.dermoscan.utils.showToast
 
 class DetectFragment : Fragment() {
     private var _binding: FragmentDetectBinding? = null
@@ -31,6 +36,9 @@ class DetectFragment : Fragment() {
     private val mResNet50ModelPath = "resnet50_model.tflite"
     private val mLabelPath = "labels.txt"
     private val mSamplePath = "placeholder2.png"
+
+    private lateinit var modelCheckAdapter: ModelCheckAdapter
+    private lateinit var modelCheckNames: Array<String>
 
     @SuppressLint("SetTextI18n")
     @RequiresApi(Build.VERSION_CODES.M)
@@ -53,6 +61,20 @@ class DetectFragment : Fragment() {
         mClassifierResnet50 = Classifier(assets, mResNet50ModelPath, mLabelPath, mInputSize)
 
         binding.ivLesionImage.setImageBitmap(args.scanImage)
+
+        modelCheckAdapter = ModelCheckAdapter(mutableListOf())
+        loadModelChecks()
+
+        modelCheckAdapter.setOnModelCheckClickListener(object : ModelCheckAdapter.OnModelCheckClickListener {
+            override fun onModelCheckClick(position: Int) {
+                activity?.let { showToast(it, "Model Item $position clicked!!!") }
+            }
+        })
+
+        binding.rvModelsCheck.apply {
+            layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
+            adapter = modelCheckAdapter
+        }
 
         binding.btnDiagnose.setOnClickListener {
             diagnoseLesion()
@@ -81,5 +103,16 @@ class DetectFragment : Fragment() {
 
         binding.tvResultsFirst.text = "$resultRCNN according to RCNN model"
         binding.tvResultsSecond.text = "$resultsResnet50 according to ResNet50 model"
+    }
+
+    private  fun loadModelChecks() {
+        modelCheckNames = arrayOf(
+            "ResNet", "VGGNet", "InceptionV3", "Xception", "Densenet", "NasNet", "AlexNet"
+        )
+
+        for (i in modelCheckNames.indices) {
+            val model = ModelCheckModel(modelCheckNames[i], false)
+            modelCheckAdapter.addModelCheck(model)
+        }
     }
 }

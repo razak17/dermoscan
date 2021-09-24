@@ -1,18 +1,15 @@
 package com.example.dermoscan.fragments
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
@@ -26,7 +23,6 @@ import com.example.dermoscan.databinding.FragmentBaseBinding
 import com.example.dermoscan.dummyScans
 import com.example.dermoscan.models.BlogModel
 import com.example.dermoscan.utils.*
-import com.theartofdev.edmodo.cropper.CropImage
 
 class BaseFragment : Fragment() {
     private var _binding: FragmentBaseBinding? = null
@@ -45,21 +41,20 @@ class BaseFragment : Fragment() {
     private val mSamplePath = "placeholder2.png"
     private lateinit var mBitmap: Bitmap
 
-    private var cropActivityResultContract = object : ActivityResultContract<Any?, Uri?>() {
-        override fun createIntent(context: Context, input: Any?): Intent {
-            return CropImage.activity().
-                    setAspectRatio(16, 9)
-                .getIntent(requireContext())
-        }
-
-        override fun parseResult(resultCode: Int, intent: Intent?): Uri? {
-            return CropImage.getActivityResult(intent)?.uri
-        }
-    }
+//    private var cropActivityResultContract = object : ActivityResultContract<Any?, Uri?>() {
+//        override fun createIntent(context: Context, input: Any?): Intent {
+//            return CropImage.activity().setAspectRatio(16, 9)
+//                .getIntent(requireContext())
+//        }
+//
+//        override fun parseResult(resultCode: Int, intent: Intent?): Uri? {
+//            return CropImage.getActivityResult(intent)?.uri
+//        }
+//    }
 
     private lateinit var cameraLauncher: ActivityResultLauncher<Intent>
-    private lateinit var galleryLauncher:  ActivityResultLauncher<Intent>
-    private lateinit var cropActivityResultLauncher: ActivityResultLauncher<Any?>
+    private lateinit var galleryLauncher: ActivityResultLauncher<Intent>
+//    private lateinit var cropActivityResultLauncher: ActivityResultLauncher<Any?>
 
 
     override fun onCreateView(
@@ -158,11 +153,12 @@ class BaseFragment : Fragment() {
                 }
             }
 
-        cropActivityResultLauncher = registerForActivityResult(cropActivityResultContract) {
-            it?.let { uri ->
-                mBitmap = activity?.let { uriToBitmap(requireActivity(), uri) }!!
-            }
-        }
+//        cropActivityResultLauncher = registerForActivityResult(cropActivityResultContract) {
+//            it?.let { uri ->
+//                mBitmap = activity?.let { uriToBitmap(requireActivity(), uri) }!!
+//                toastAndNavigateToDetect(mBitmap)
+//            }
+//        }
 
         return view
     }
@@ -171,8 +167,8 @@ class BaseFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnScanImage.setOnClickListener {
-//            openDialog()
-            cropActivityResultLauncher.launch(null)
+            openDialog()
+//            cropActivityResultLauncher.launch(null)
         }
 
         binding.tvAllScans.setOnClickListener {

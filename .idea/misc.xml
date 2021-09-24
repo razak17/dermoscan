@@ -9,6 +9,7 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/drawable/ic_camera_white.xml" value="0.240625" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/drawable/ic_check.xml" value="0.240625" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.240625" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/drawable/rounded_corners.xml" value="0.240625" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/activity_main.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/blog_card.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/fragment_about.xml" value="0.10916919959473151" />
@@ -22,6 +23,8 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/fragment_scan_history.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/fragment_settings.xml" value="0.1526268115942029" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/info_card.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/model_check_item.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/model_item.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/scan_dialog.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/scan_item.xml" value="0.18" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Dermoscan2/app/src/main/res/layout/settings_item.xml" value="0.22447916666666667" />
