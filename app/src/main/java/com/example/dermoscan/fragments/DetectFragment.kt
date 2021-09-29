@@ -116,8 +116,8 @@ class DetectFragment : Fragment() {
                     DetectFragmentDirections.navigateToScanResultsFragment(
                         models.toTypedArray(),
                         predictions.toTypedArray(),
-                        confidence.toTypedArray()
-                    )
+                        confidence.toTypedArray(),
+                        )
                 findNavController().navigate(action)
 
             } else {
@@ -137,7 +137,7 @@ class DetectFragment : Fragment() {
         val results = classifier.recognizeImage(scanImage).firstOrNull()
 
         results?.title?.let { predictions.add(it) }
-        results?.confidence?.let { confidence.add(it.times(100).toInt().toString()) }
+        results?.confidence?.let { confidence.add(it.times(100).toInt().toString() + "%") }
     }
 
     @SuppressLint("SetTextI18n")

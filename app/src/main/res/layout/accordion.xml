@@ -4,25 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
+    android:animateLayoutChanges="true"
     app:cardCornerRadius="10dp"
-    app:cardElevation="3dp"
-    android:animateLayoutChanges="true">
+    app:cardElevation="3dp">
 
     <LinearLayout
+        android:id="@+id/accordion_card"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:id="@+id/accordion_card">
+        android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/titleHolder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="-5dp"
             android:layout_gravity="center"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="-5dp"
             card_view:cardBackgroundColor="@color/white">
 
             <RelativeLayout
@@ -54,7 +54,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/textConfidenceHolder"
+            android:id="@+id/textInferenceHolder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -62,24 +62,26 @@
             card_view:cardBackgroundColor="@color/white">
 
             <RelativeLayout
-                android:id="@+id/textParent"
+                android:id="@+id/textInferenceParent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp">
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
 
                 <!-- Text of the Accordion -->
                 <TextView
-                    android:id="@+id/textConfidence"
+                    android:id="@+id/textInferenceResult"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true" />
+                    android:layout_centerVertical="true"
+                    android:text="@string/app_name" />
 
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/textHolder"
+            android:id="@+id/textMoreInfoHolder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -87,17 +89,18 @@
             card_view:cardBackgroundColor="@color/white">
 
             <RelativeLayout
-                android:id="@+id/textConfidenceParent"
+                android:id="@+id/textMoreInfoParent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp">
 
                 <!-- Text of the Accordion -->
                 <TextView
-                    android:id="@+id/text"
+                    android:id="@+id/textMoreInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true" />
+                    android:layout_centerVertical="true"
+                    android:text="@string/resnet50_text" />
 
             </RelativeLayout>
         </androidx.cardview.widget.CardView>

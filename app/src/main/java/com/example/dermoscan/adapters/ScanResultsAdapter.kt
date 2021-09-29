@@ -27,18 +27,19 @@ class ScanResultsAdapter(
         val modelCheckModel = scanResultsList[position]
 
         holder.accordionView.titleTv.text = modelCheckModel.modelName
-        holder.accordionView.textTv.text = modelCheckModel.prediction
-        holder.accordionView.confidenceTv.text = modelCheckModel.confidence
+        holder.accordionView.confidenceTv.text = modelCheckModel.inferenceResult
+        holder.accordionView.textTv.text = modelCheckModel.moreInfo
     }
 
     override fun getItemCount(): Int = scanResultsList.size // return list of items
 
     class ViewHolder(ItemView: View) :
         RecyclerView.ViewHolder(ItemView) {
-        val accordionView: com.example.dermoscan.widget.Accordion = itemView.findViewById(R.id.accordionCard)
+        val accordionView: com.example.dermoscan.widget.Accordion =
+            itemView.findViewById(R.id.accordionCard)
     }
 
-    fun addScanResult(m: String, prediction: String, confidence: String) {
+    fun addScanResult(m: String, inferenceResult: String, moreInfo: String) {
         var formattedString = ""
 
         if (m == "rcnn") {
@@ -60,7 +61,7 @@ class ScanResultsAdapter(
             formattedString = context.getString(R.string.strMobileNet)
         }
 
-        val model = ScanResultsModel(formattedString,prediction, confidence)
+        val model = ScanResultsModel(formattedString, inferenceResult, moreInfo)
         scanResultsList.add(model)
         notifyItemInserted(scanResultsList.size - 1)
     }

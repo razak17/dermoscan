@@ -106,8 +106,8 @@ class Accordion(context: Context, attributeSet: AttributeSet) :
 
         //val card = findViewById<CardView>(R.id.accordion_card)
         titleTv = findViewById(R.id.title)
-        textTv = findViewById(R.id.text)
-        confidenceTv = findViewById(R.id.textConfidence)
+        confidenceTv = findViewById(R.id.textInferenceResult)
+        textTv = findViewById(R.id.textMoreInfo)
         icon = findViewById(R.id.arrow)
 
         icon.layoutParams.height = titleSize.toInt()
@@ -129,8 +129,8 @@ class Accordion(context: Context, attributeSet: AttributeSet) :
         confidenceTv.text = confidenceText
 
         titleHolder = findViewById(R.id.titleHolder)
-        textHolder = findViewById(R.id.textHolder)
-        confidenceHolder = findViewById(R.id.textConfidenceHolder)
+        confidenceHolder = findViewById(R.id.textInferenceHolder)
+        textHolder = findViewById(R.id.textMoreInfoHolder)
 
         textHolder.visibility = View.GONE
         confidenceHolder.visibility = View.GONE
