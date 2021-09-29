@@ -40,7 +40,7 @@
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/strImageDescription"
                 android:scaleType="centerCrop"
-                android:src="@drawable/photo1"
+                android:src="@drawable/blog1"
                 app:layout_constraintBaseline_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -3,7 +3,6 @@ package com.example.dermoscan.fragments
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -38,7 +37,6 @@ class BaseFragment : Fragment() {
     private lateinit var blogArticle: Array<String>
 
     private val mInputSize = 224
-    private val mSamplePath = "placeholder2.png"
     private lateinit var mBitmap: Bitmap
 
     private lateinit var cameraLauncher: ActivityResultLauncher<Intent>
@@ -51,13 +49,6 @@ class BaseFragment : Fragment() {
     ): View {
         _binding = FragmentBaseBinding.inflate(inflater, container, false)
         val view = binding.root
-
-        val assets = resources.assets
-        assets.open(mSamplePath).use {
-            this.mBitmap = BitmapFactory.decodeStream(it)
-            this.mBitmap =
-                Bitmap.createScaledBitmap(this.mBitmap, mInputSize, mInputSize, true)
-        }
 
         // Load dummy blogs
         blogAdapter = BlogAdapter(ArrayList())
@@ -150,7 +141,7 @@ class BaseFragment : Fragment() {
             openDialog()
         }
 
-        binding.btnAllScans.setOnClickListener {
+        binding.recentScansHolder.setOnClickListener {
             val action = BaseFragmentDirections.navigateToScanHistoryFragment()
             findNavController().navigate(action)
         }
@@ -202,17 +193,21 @@ class BaseFragment : Fragment() {
 
     private fun dummyBlogs() {
         blogImageId = arrayOf(
-            R.drawable.photo1,
-            R.drawable.photo2,
-            R.drawable.photo3,
-            R.drawable.photo2,
-        )
+            R.drawable.blog1,
+            R.drawable.blog2,
+            R.drawable.blog3,
+            R.drawable.blog4,
+            R.drawable.blog5,
+            R.drawable.blog6,
+            )
 
         blogHeading = arrayOf(
-            "First Article",
-            "Second Article",
-            "Third Article",
-            "Fourth Article",
+            getString(R.string.blog1_title),
+            getString(R.string.blog2_title),
+            getString(R.string.blog3_title),
+            getString(R.string.blog4_title),
+            getString(R.string.blog5_title),
+            getString(R.string.blog6_title)
         )
 
         blogArticle = arrayOf(
@@ -220,7 +215,9 @@ class BaseFragment : Fragment() {
             getString(R.string.blog_1),
             getString(R.string.blog_1),
             getString(R.string.blog_1),
-        )
+            getString(R.string.blog_1),
+            getString(R.string.blog_1),
+            )
 
         for (i in blogImageId.indices) {
             val blog = BlogModel(blogHeading[i], blogArticle[i], blogImageId[i])

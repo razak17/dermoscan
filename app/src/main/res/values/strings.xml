@@ -5,7 +5,7 @@
     <string name="second_fragment">second fragment</string>
     <string name="third_fragment">© 2021 - Dermoscan Inc.</string>
     <string name="strWelcomeSub">Get started by creating a new scan.</string>
-    <string name="strBlogHeaderSub">Get the latest on the advancement in skin cancer research</string>
+    <string name="strBlogHeaderSub">Get the latest news in skin cancer research</string>
     <string name="strRecentScansHeaderSub">Your most recent scans</string>
     <string name="strNewScan">Scan Image</string>
     <string name="strLaunchCamera">Camera</string>
@@ -36,6 +36,31 @@
     <string name="strRecentScansHeader">Recent Scans</string>
     <string name="strResultRCNN">RCCN:</string>
     <string name="strResultResNet50">ResNet50:</string>
+
+    <string name="blog1_title">
+        Advancements in Treatment of Melanomas Over The Past 10 Years
+    </string>
+    <string name="blog2_title">
+        Diagnostic Accuracy of Optical Coherence Tomography in Skin Cancer
+    </string>
+    <string name="blog3_title">
+        A 45-Year Historical Cohort Study of Cutaneous melanoma in 14·9 million people
+    </string>
+    <string name="blog4_title">
+        New and Ongoing Research in The Field of Skin Cancer
+    </string>
+    <string name="blog5_title">
+        Understanding skin cancer
+    </string>
+    <string name="blog6_title">
+        Early Diagnosis of Skin Cancer: All You Need To Know About Skin Biopsy
+    </string>
+
+    <string name="blog1_article">
+        The prevalence and incidence of melanoma has increased exponentially in the past 20 years. Nevertheless, with significant advances in medicine over the past decade, almost 85% of melanoma patients have a good prognosis owing to early diagnosis and prompt management.
+
+        Prior to advancements in the currently employed modes of therapy such as targeted therapy and immunotherapy, the primary agents used for treatment of melanoma was chemotherapy drugs such as dacarbazine. However, these therapies are far from ideal for patients due to their poor therapeutic benefits and associated adverse effects in advanced stages of melanoma.
+    </string>
 
     <string name="blog_1">
         It is a long established fact that a reader will be distracted by the readable content of a
@@ -100,31 +125,7 @@
     <string name="small_text">Small Text</string>
     <string name="scan_text">Scan Text</string>
     <string name="warning_text">
-        Note: These results are for research purposes and are not to be taken as medical advice. Please make sure to get second opinion from a qualified medical professional. All the models used for this particular prediction were trained on over 1000 dermoscopic images
-    </string>
-    <string name="resnet50_text">
-        According to this model, the image is 60% malignant. This means you mole could be cancerous and potentially dangerous. Make sure to see a doctor as soon as possible.
-        This model achieve an accuracy of 80% during training. To learn more about this model checkout the Dermoscan blog or click here.
-    </string>
-    <string name="rcnn_text">
-        According to this model, the image is 60% malignant. This means you mole could be cancerous and potentially dangerous. Make sure to see a doctor as soon as possible.
-        This model achieve an accuracy of 80% during training. To learn more about this model checkout the Dermoscan blog or click here.
-    </string>
-    <string name="inception_text">
-        According to this model, the image is 60% malignant. This means you mole could be cancerous and potentially dangerous. Make sure to see a doctor as soon as possible.
-        This model achieve an accuracy of 80% during training. To learn more about this model checkout the Dermoscan blog or click here.
-    </string>
-    <string name="xception_text">
-        According to this model, the image is 60% malignant. This means you mole could be cancerous and potentially dangerous. Make sure to see a doctor as soon as possible.
-        This model achieve an accuracy of 80% during training. To learn more about this model checkout the Dermoscan blog or click here.
-    </string>
-    <string name="vgg16_text">
-        According to this model, the image is 60% malignant. This means you mole could be cancerous and potentially dangerous. Make sure to see a doctor as soon as possible.
-        This model achieve an accuracy of 80% during training. To learn more about this model checkout the Dermoscan blog or click here.
-    </string>
-    <string name="mobile_net_text">
-        According to this model, the image is 60% malignant. This means you mole could be cancerous and potentially dangerous. Make sure to see a doctor as soon as possible.
-        This model achieve an accuracy of 80% during training. To learn more about this model checkout the Dermoscan blog or click here.
+        Note: These results are for research purposes and are not to be taken as medical advice. Please make sure to get second opinion from a qualified medical professional. All the models used for this particular prediction were trained on over 1000 dermoscopic images.
     </string>
 
     <string name="home">Home</string>
@@ -138,6 +139,9 @@
     <string name="strXception">Xception</string>
     <string name="strVGG16">VGG16</string>
     <string name="strMobileNet">MobileNet</string>
-
+    <string name="str_article_image_desc">article image desc</string>
+    <string name="str_description">The Description</string>
+    <string name="str_title">The title</string>
+    <string name="str_sub_title">The Sub title</string>
 
 </resources>
