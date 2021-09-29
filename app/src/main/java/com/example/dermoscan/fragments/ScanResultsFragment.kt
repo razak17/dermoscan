@@ -52,7 +52,7 @@ class ScanResultsFragment : Fragment() {
 
 
         for (i in m.indices) {
-            scanResultAdapter.addScanResult(m[i])
+            scanResultAdapter.addScanResult(m[i], p[i], c[i])
         }
     }
 }

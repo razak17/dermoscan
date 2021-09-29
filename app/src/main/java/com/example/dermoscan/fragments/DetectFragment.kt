@@ -138,9 +138,6 @@ class DetectFragment : Fragment() {
 
         results?.title?.let { predictions.add(it) }
         results?.confidence?.let { confidence.add(it.times(100).toInt().toString()) }
-
-//        return results?.confidence?.times(100)?.toInt()
-//            .toString() + "% " + results?.title
     }
 
     @SuppressLint("SetTextI18n")
@@ -166,10 +163,5 @@ class DetectFragment : Fragment() {
                 doInference(rcnn, targetImage)
             }
         }
-
-//
-//
-//        binding.tvResultsFirst.text = "$resultRCNN according to rcnn model"
-//        binding.tvResultsSecond.text = "$resultsResnet50 according to resnet50 model"
     }
 }

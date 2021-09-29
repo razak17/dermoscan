@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.gouravkhunger.accolib.widget.Accordion
+    <com.example.dermoscan.widget.Accordion
         android:id="@+id/accordionCard"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -12,9 +12,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:text="@string/small_text"
+        app:confidenceText="@string/app_name"
         app:textColor="@android:color/darker_gray"
         app:textSize="16sp"
         app:title="@string/small_title"
+        app:confidenceSize="18sp"
         app:titleColor="@android:color/black"
         app:titleSize="18sp" />
 

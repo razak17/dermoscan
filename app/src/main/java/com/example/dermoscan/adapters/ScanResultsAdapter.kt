@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dermoscan.R
 import com.example.dermoscan.models.ScanResultsModel
-import com.gouravkhunger.accolib.widget.Accordion
 
 class ScanResultsAdapter(
     private val scanResultsList: MutableList<ScanResultsModel>,
@@ -28,16 +27,18 @@ class ScanResultsAdapter(
         val modelCheckModel = scanResultsList[position]
 
         holder.accordionView.titleTv.text = modelCheckModel.modelName
+        holder.accordionView.textTv.text = modelCheckModel.prediction
+        holder.accordionView.confidenceTv.text = modelCheckModel.confidence
     }
 
     override fun getItemCount(): Int = scanResultsList.size // return list of items
 
     class ViewHolder(ItemView: View) :
         RecyclerView.ViewHolder(ItemView) {
-        val accordionView: Accordion = itemView.findViewById(R.id.accordionCard)
+        val accordionView: com.example.dermoscan.widget.Accordion = itemView.findViewById(R.id.accordionCard)
     }
 
-    fun addScanResult(m: String) {
+    fun addScanResult(m: String, prediction: String, confidence: String) {
         var formattedString = ""
 
         if (m == "rcnn") {
@@ -59,7 +60,7 @@ class ScanResultsAdapter(
             formattedString = context.getString(R.string.strMobileNet)
         }
 
-        val model = ScanResultsModel(formattedString)
+        val model = ScanResultsModel(formattedString,prediction, confidence)
         scanResultsList.add(model)
         notifyItemInserted(scanResultsList.size - 1)
     }
