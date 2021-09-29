@@ -28,15 +28,29 @@ class DetectFragment : Fragment() {
 
     private val args: DetectFragmentArgs by navArgs()
 
-    private lateinit var mClassifier: Classifier
-    private lateinit var mClassifierResnet50: Classifier
+    private lateinit var rcnn: Classifier
+    private lateinit var resnet50: Classifier
+    private lateinit var inception: Classifier
+    private lateinit var xception: Classifier
+    private lateinit var vgg16: Classifier
+    private lateinit var mobileNet: Classifier
+
+
     private lateinit var mBitmap: Bitmap
 
+    private val mRCNNModelPath = "model.tflite"
+    private val mResnet50ModelPath = "resnet50_model.tflite"
+
     private val mInputSize = 224
-    private val mModelPath = "model.tflite"
-    private val mResNet50ModelPath = "resnet50_model.tflite"
     private val mLabelPath = "labels.txt"
     private val mSamplePath = "placeholder2.png"
+
+    private lateinit var targetImage: Bitmap
+
+    private lateinit var models: MutableList<String>
+    private lateinit var predictions: MutableList<String>
+    private lateinit var confidence: MutableList<String>
+
 
     private lateinit var modelCheckAdapter: ModelCheckAdapter
 
@@ -57,27 +71,37 @@ class DetectFragment : Fragment() {
             view.findViewById<ImageView>(R.id.ivLesionImage).setImageBitmap(this.mBitmap)
         }
 
-        mClassifier = Classifier(assets, mModelPath, mLabelPath, mInputSize)
-        mClassifierResnet50 = Classifier(assets, mResNet50ModelPath, mLabelPath, mInputSize)
+        rcnn = Classifier(assets, mRCNNModelPath, mLabelPath, mInputSize)
+        resnet50 = Classifier(assets, mResnet50ModelPath, mLabelPath, mInputSize)
+        inception = Classifier(assets, mResnet50ModelPath, mLabelPath, mInputSize)
+        xception = Classifier(assets, mResnet50ModelPath, mLabelPath, mInputSize)
+        vgg16 = Classifier(assets, mResnet50ModelPath, mLabelPath, mInputSize)
+        mobileNet = Classifier(assets, mResnet50ModelPath, mLabelPath, mInputSize)
 
-        binding.ivLesionImage.setImageBitmap(args.scanImage)
 
-        val models = mutableListOf(
-            ModelCheckModel("ResNet"),
-            ModelCheckModel("VGGNet"),
-            ModelCheckModel("InceptionV3"),
-            ModelCheckModel("Xception"),
-            ModelCheckModel("Densenet"),
-            ModelCheckModel("NasNet"),
-            ModelCheckModel("AlexNet"),
+        targetImage = args.scanImage
+
+        binding.ivLesionImage.setImageBitmap(targetImage)
+
+        val modelList = mutableListOf(
+            ModelCheckModel("rcnn"),
+            ModelCheckModel("resnet50"),
+            ModelCheckModel("inception"),
+            ModelCheckModel("xception"),
+            ModelCheckModel("vgg16"),
+            ModelCheckModel("mobileNet"),
         )
 
-        modelCheckAdapter = ModelCheckAdapter(models)
+        modelCheckAdapter = ModelCheckAdapter(modelList, requireContext())
 
         binding.rvModelsCheck.apply {
             layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
             adapter = modelCheckAdapter
         }
+
+        models = modelCheckAdapter.checkedModels
+        predictions = mutableListOf()
+        confidence = mutableListOf()
 
         return view
     }
@@ -85,11 +109,15 @@ class DetectFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnDiagnose.setOnClickListener {
-            val model = modelCheckAdapter.checkedModels
+            if (models.size > 0) {
+                diagnoseLesion()
 
-            if (model.size > 0) {
                 val action =
-                    DetectFragmentDirections.navigateToScanResultsFragment(model.toTypedArray())
+                    DetectFragmentDirections.navigateToScanResultsFragment(
+                        models.toTypedArray(),
+                        predictions.toTypedArray(),
+                        confidence.toTypedArray()
+                    )
                 findNavController().navigate(action)
 
             } else {
@@ -105,19 +133,43 @@ class DetectFragment : Fragment() {
     }
 
     // pass image to the model and return the results
-    private fun doInference(classifier: Classifier, scanImage: Bitmap): String {
+    private fun doInference(classifier: Classifier, scanImage: Bitmap) {
         val results = classifier.recognizeImage(scanImage).firstOrNull()
 
-        return results?.confidence?.times(100)?.toInt()
-            .toString() + "% " + results?.title
+        results?.title?.let { predictions.add(it) }
+        results?.confidence?.let { confidence.add(it.times(100).toInt().toString()) }
+
+//        return results?.confidence?.times(100)?.toInt()
+//            .toString() + "% " + results?.title
     }
 
     @SuppressLint("SetTextI18n")
     fun diagnoseLesion() {
-        val resultRCNN = doInference(mClassifier, args.scanImage)
-        val resultsResnet50 = doInference(mClassifierResnet50, args.scanImage)
 
-        binding.tvResultsFirst.text = "$resultRCNN according to RCNN model"
-        binding.tvResultsSecond.text = "$resultsResnet50 according to ResNet50 model"
+        for (i in models.indices) {
+            if (models[i] == "rcnn") {
+                doInference(rcnn, targetImage)
+            }
+            if (models[i] == "resnet50") {
+                doInference(rcnn, targetImage)
+            }
+            if (models[i] == "inception") {
+                doInference(rcnn, targetImage)
+            }
+            if (models[i] == "xception") {
+                doInference(rcnn, targetImage)
+            }
+            if (models[i] == "vgg16") {
+                doInference(rcnn, targetImage)
+            }
+            if (models[i] == "mobileNet") {
+                doInference(rcnn, targetImage)
+            }
+        }
+
+//
+//
+//        binding.tvResultsFirst.text = "$resultRCNN according to rcnn model"
+//        binding.tvResultsSecond.text = "$resultsResnet50 according to resnet50 model"
     }
 }

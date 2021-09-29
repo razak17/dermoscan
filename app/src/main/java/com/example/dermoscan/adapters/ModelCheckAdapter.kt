@@ -1,5 +1,6 @@
 package com.example.dermoscan.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import com.example.dermoscan.models.ModelCheckModel
 
 class ModelCheckAdapter(
     private val modelsList: MutableList<ModelCheckModel>,
+    private val context: Context
 ) : RecyclerView.Adapter<ModelCheckAdapter.ViewHolder>() {
 
     var checkedModels: MutableList<String> = mutableListOf()
@@ -25,7 +27,25 @@ class ModelCheckAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model = modelsList[position]
 
-        holder.modelCheckText.text = model.name
+        if (model.name == "rcnn") {
+            holder.modelCheckText.text = context.getString(R.string.strRCNN)
+        }
+        if (model.name == "resnet50") {
+            holder.modelCheckText.text = context.getString(R.string.strResNet50)
+        }
+        if (model.name == "inception") {
+            holder.modelCheckText.text = context.getString(R.string.strInception)
+        }
+        if (model.name == "xception") {
+            holder.modelCheckText.text = context.getString(R.string.strXception)
+        }
+        if (model.name == "vgg16") {
+            holder.modelCheckText.text = context.getString(R.string.strVGG16)
+        }
+        if (model.name == "mobileNet") {
+            holder.modelCheckText.text = context.getString(R.string.strMobileNet)
+        }
+
         holder.modelCheck.isChecked = model.isChecked
 
         holder.modelCheck.setOnCheckedChangeListener { _, isChecked ->

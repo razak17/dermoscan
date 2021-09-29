@@ -9,7 +9,6 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dermoscan.adapters.ScanResultsAdapter
 import com.example.dermoscan.databinding.FragmentScanResultsBinding
-import com.example.dermoscan.models.ScanResultsModel
 
 class ScanResultsFragment : Fragment() {
     private var _binding: FragmentScanResultsBinding? = null
@@ -26,7 +25,7 @@ class ScanResultsFragment : Fragment() {
         _binding = FragmentScanResultsBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        scanResultAdapter = ScanResultsAdapter(mutableListOf())
+        scanResultAdapter = ScanResultsAdapter(mutableListOf(), requireContext())
         loadResults()
 
         binding.rvScanResults.apply {
@@ -47,10 +46,13 @@ class ScanResultsFragment : Fragment() {
     }
 
     private fun loadResults() {
-        val t = args.selectedModels
-        for (i in t.indices) {
-            val model = ScanResultsModel(t[i])
-            scanResultAdapter.addScanResult(model)
+        val m = args.selectedModels
+        val p = args.predictions
+        val c = args.confidence
+
+
+        for (i in m.indices) {
+            scanResultAdapter.addScanResult(m[i])
         }
     }
 }

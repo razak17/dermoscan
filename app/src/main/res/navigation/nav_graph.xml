@@ -96,5 +96,11 @@
         <argument
             android:name="selectedModels"
             app:argType="string[]" />
+        <argument
+            android:name="predictions"
+            app:argType="string[]" />
+        <argument
+            android:name="confidence"
+            app:argType="string[]" />
     </fragment>
 </navigation>
