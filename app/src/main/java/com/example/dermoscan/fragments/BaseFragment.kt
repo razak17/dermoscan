@@ -41,21 +41,8 @@ class BaseFragment : Fragment() {
     private val mSamplePath = "placeholder2.png"
     private lateinit var mBitmap: Bitmap
 
-//    private var cropActivityResultContract = object : ActivityResultContract<Any?, Uri?>() {
-//        override fun createIntent(context: Context, input: Any?): Intent {
-//            return CropImage.activity().setAspectRatio(16, 9)
-//                .getIntent(requireContext())
-//        }
-//
-//        override fun parseResult(resultCode: Int, intent: Intent?): Uri? {
-//            return CropImage.getActivityResult(intent)?.uri
-//        }
-//    }
-
     private lateinit var cameraLauncher: ActivityResultLauncher<Intent>
     private lateinit var galleryLauncher: ActivityResultLauncher<Intent>
-//    private lateinit var cropActivityResultLauncher: ActivityResultLauncher<Any?>
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -153,13 +140,6 @@ class BaseFragment : Fragment() {
                 }
             }
 
-//        cropActivityResultLauncher = registerForActivityResult(cropActivityResultContract) {
-//            it?.let { uri ->
-//                mBitmap = activity?.let { uriToBitmap(requireActivity(), uri) }!!
-//                toastAndNavigateToDetect(mBitmap)
-//            }
-//        }
-
         return view
     }
 
@@ -168,10 +148,9 @@ class BaseFragment : Fragment() {
 
         binding.btnScanImage.setOnClickListener {
             openDialog()
-//            cropActivityResultLauncher.launch(null)
         }
 
-        binding.tvAllScans.setOnClickListener {
+        binding.btnAllScans.setOnClickListener {
             val action = BaseFragmentDirections.navigateToScanHistoryFragment()
             findNavController().navigate(action)
         }

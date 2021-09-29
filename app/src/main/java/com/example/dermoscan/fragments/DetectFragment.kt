@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -38,7 +39,6 @@ class DetectFragment : Fragment() {
     private val mSamplePath = "placeholder2.png"
 
     private lateinit var modelCheckAdapter: ModelCheckAdapter
-    private lateinit var modelCheckNames: Array<String>
 
     @SuppressLint("SetTextI18n")
     @RequiresApi(Build.VERSION_CODES.M)
@@ -62,25 +62,41 @@ class DetectFragment : Fragment() {
 
         binding.ivLesionImage.setImageBitmap(args.scanImage)
 
-        modelCheckAdapter = ModelCheckAdapter(mutableListOf())
-        loadModelChecks()
+        val models = mutableListOf(
+            ModelCheckModel("ResNet"),
+            ModelCheckModel("VGGNet"),
+            ModelCheckModel("InceptionV3"),
+            ModelCheckModel("Xception"),
+            ModelCheckModel("Densenet"),
+            ModelCheckModel("NasNet"),
+            ModelCheckModel("AlexNet"),
+        )
 
-        modelCheckAdapter.setOnModelCheckClickListener(object : ModelCheckAdapter.OnModelCheckClickListener {
-            override fun onModelCheckClick(position: Int) {
-                activity?.let { showToast(it, "Model Item $position clicked!!!") }
-            }
-        })
+        modelCheckAdapter = ModelCheckAdapter(models)
 
         binding.rvModelsCheck.apply {
             layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
             adapter = modelCheckAdapter
         }
 
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding.btnDiagnose.setOnClickListener {
-            diagnoseLesion()
+            val model = modelCheckAdapter.checkedModels
+
+            if (model.size > 0) {
+                val action =
+                    DetectFragmentDirections.navigateToScanResultsFragment(model.toTypedArray())
+                findNavController().navigate(action)
+
+            } else {
+                showToast(requireActivity(), "Please Check An Item First")
+            }
         }
 
-        return view
     }
 
     override fun onDestroyView() {
@@ -103,16 +119,5 @@ class DetectFragment : Fragment() {
 
         binding.tvResultsFirst.text = "$resultRCNN according to RCNN model"
         binding.tvResultsSecond.text = "$resultsResnet50 according to ResNet50 model"
-    }
-
-    private  fun loadModelChecks() {
-        modelCheckNames = arrayOf(
-            "ResNet", "VGGNet", "InceptionV3", "Xception", "Densenet", "NasNet", "AlexNet"
-        )
-
-        for (i in modelCheckNames.indices) {
-            val model = ModelCheckModel(modelCheckNames[i], false)
-            modelCheckAdapter.addModelCheck(model)
-        }
     }
 }

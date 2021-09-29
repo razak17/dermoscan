@@ -3,56 +3,47 @@ package com.example.dermoscan.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dermoscan.R
 import com.example.dermoscan.models.ModelCheckModel
 
 class ModelCheckAdapter(
-    private val modelCheckList: MutableList<ModelCheckModel>,
+    private val modelsList: MutableList<ModelCheckModel>,
 ) : RecyclerView.Adapter<ModelCheckAdapter.ViewHolder>() {
 
-    private lateinit var modelCheckClickListener: OnModelCheckClickListener
+    var checkedModels: MutableList<String> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.model_check_item, parent, false)
 
-        return ViewHolder(view, modelCheckClickListener)
+        return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val modelCheckModel = modelCheckList[position]
+        val model = modelsList[position]
 
-        // sets the model name to modelText
-        holder.modelCheckText.text = modelCheckModel.name
-    }
+        holder.modelCheckText.text = model.name
+        holder.modelCheck.isChecked = model.isChecked
 
-    override fun getItemCount(): Int = modelCheckList.size // return list of items
-
-    class ViewHolder(ItemView: View, listener: OnModelCheckClickListener) : RecyclerView.ViewHolder(ItemView) {
-        val modelCheckText: TextView = itemView.findViewById(R.id.tvModelCheckName)
-
-        init {
-            itemView.setOnClickListener {
-                val adapter = adapterPosition
-                if (adapter != RecyclerView.NO_POSITION) {
-                    listener.onModelCheckClick(adapterPosition)
-                }
+        holder.modelCheck.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                model.isChecked = true
+                checkedModels.add(model.name)
+            } else if (!isChecked) {
+                model.isChecked = false
+                checkedModels.remove(model.name)
             }
         }
     }
 
-    fun addModelCheck(model: ModelCheckModel) {
-        modelCheckList.add(model)
-        notifyItemInserted(modelCheckList.size - 1)
-    }
+    override fun getItemCount(): Int = modelsList.size // return list of items
 
-    interface OnModelCheckClickListener {
-        fun onModelCheckClick(position: Int)
-    }
-
-    fun setOnModelCheckClickListener(listener: OnModelCheckClickListener) {
-        modelCheckClickListener = listener
+    class ViewHolder(ItemView: View) :
+        RecyclerView.ViewHolder(ItemView) {
+        val modelCheckText: TextView = itemView.findViewById(R.id.tvModelCheckName)
+        val modelCheck: CheckBox = itemView.findViewById(R.id.cbModelCheck)
     }
 }

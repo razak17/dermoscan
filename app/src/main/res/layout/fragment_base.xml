@@ -21,8 +21,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tvFirstFragment"
@@ -66,15 +65,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cvWelcomeCard" />
 
+    <TextView
+        android:id="@+id/tvBlogHeaderSub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/strBlogHeaderSub"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBlogHeader" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvBlog"
         android:layout_width="0dp"
         android:layout_height="190dp"
-        android:layout_marginStart="14dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvBlogHeader" />
+        app:layout_constraintTop_toBottomOf="@+id/tvBlogHeaderSub" />
 
     <TextView
         android:id="@+id/tvRecentScansHeader"
@@ -90,15 +98,29 @@
         app:layout_constraintTop_toBottomOf="@+id/rvBlog" />
 
     <TextView
-        android:id="@+id/tvAllScans"
+        android:id="@+id/tvRecentScansHeaderSub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/strRecentScansHeaderSub"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRecentScansHeader" />
+
+    <Button
+        android:id="@+id/btnAllScans"
+        style="@style/buttonWithIconOnly"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
         android:layout_marginTop="6dp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/strAllScans"
-        android:textSize="18sp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/go_to_all_scans"
+        android:labelFor="@+id/btnAllScans"
+        app:icon="@drawable/ic_east"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rvBlog" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRecentScans"
@@ -110,7 +132,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvRecentScansHeader" />
+        app:layout_constraintTop_toBottomOf="@+id/tvRecentScansHeaderSub" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabCamera"

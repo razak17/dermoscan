@@ -5,6 +5,8 @@
     <string name="second_fragment">second fragment</string>
     <string name="third_fragment">© 2021 - Dermoscan Inc.</string>
     <string name="strWelcomeSub">Get started by creating a new scan.</string>
+    <string name="strBlogHeaderSub">Get the latest on the advancement in skin cancer research</string>
+    <string name="strRecentScansHeaderSub">Your most recent scans</string>
     <string name="strNewScan">Scan Image</string>
     <string name="strLaunchCamera">Camera</string>
     <string name="strImageDescription">View for displaying image</string>
@@ -95,5 +97,17 @@
     <string name="strBlogDetailTitle">Blog Title</string>
     <string name="strAllScans">View All</string>
     <string name="strFabCamera">Floating Camera Fab</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="small_title">Small Title</string>
+    <string name="small_text">Small Text</string>
+    <string name="scan_text">Scan Text</string>
+    <string name="warning_text">
+        Note: These results are for research purposes and are not to be taken as medical advice. Please make sure to get second opinion from a qualified medical professional. All the models used for this particular prediction were trained on over 1000 dermoscopic images
+    </string>
+    <string name="home">Home</string>
+    <string name="info">Info</string>
+    <string name="history">History</string>
+    <string name="settings">Settings</string>
+    <string name="go_to_all_scans">Go to All Scans</string>
 
 </resources>

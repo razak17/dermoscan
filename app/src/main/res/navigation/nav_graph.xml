@@ -56,6 +56,9 @@
         <argument
             android:name="scanImage"
             app:argType="android.graphics.Bitmap" />
+        <action
+            android:id="@+id/navigateToScanResultsFragment"
+            app:destination="@id/scanResultsFragment" />
     </fragment>
     <fragment
         android:id="@+id/blogDetailsFragment"
@@ -84,5 +87,14 @@
         <argument
             android:name="infoImage"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/scanResultsFragment"
+        android:name="com.example.dermoscan.fragments.ScanResultsFragment"
+        android:label="Scan Results"
+        tools:layout="@layout/fragment_scan_results">
+        <argument
+            android:name="selectedModels"
+            app:argType="string[]" />
     </fragment>
 </navigation>
